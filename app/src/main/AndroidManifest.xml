@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.firebaseapps">
 
@@ -8,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StudentMainActivity"></activity>
+        <activity android:name=".adapter.ScheduleAdapter"></activity>
+        <activity android:name=".adapter.EnrollAdapter" />
+        <activity android:name=".CourseData" />
+        <activity android:name=".adapter.CourseAdapter" />
+        <activity android:name=".StudentMainActivity" />
         <activity android:name=".StudentData" />
         <activity android:name=".LecturerDetail" />
         <activity android:name=".adapter.LecturerAdapter" />
