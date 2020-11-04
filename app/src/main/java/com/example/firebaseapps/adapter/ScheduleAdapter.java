@@ -66,7 +66,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.CardVi
                         break;
                     }
                 }
-                if (!lecturerName.getValue().isEmpty()) {
+                if (lecturerName != null) {
                     holder.lbl_subject.setText(course.getSubject());
                     holder.lbl_subject.setText(course.getSubject());
                     holder.lbl_schedule.setText(course.getDay() + ", " + course.getStart() + " - " + course.getEnd());

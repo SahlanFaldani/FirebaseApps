@@ -22,9 +22,8 @@ import java.util.ArrayList;
 
 public class CourseData extends AppCompatActivity {
 
-    Toolbar courseDataToolbar;
-    RecyclerView courseDataRV;
-
+    Toolbar CourseDataToolbarr;
+    RecyclerView CourseDataRV;
     DatabaseReference dbCourse;
 
     ArrayList<Course> listCourse = new ArrayList<>();
@@ -34,21 +33,22 @@ public class CourseData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_data);
 
-        setSupportActionBar(courseDataToolbar);
+        CourseDataToolbarr = findViewById(R.id.courseDataToolbar);
+        CourseDataRV = findViewById(R.id.courseDataRV);
+
+        setSupportActionBar(CourseDataToolbarr);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         dbCourse = FirebaseDatabase.getInstance().getReference("course");
         fetchCourseData();
-
     }
-
     private void fetchCourseData() {
         dbCourse.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 listCourse.clear();
-                courseDataRV.setAdapter(null);
+                CourseDataRV.setAdapter(null);
                 for(DataSnapshot childSnapshot : snapshot.getChildren()){
                     Course course = childSnapshot.getValue(Course.class);
                     listCourse.add(course);
@@ -63,10 +63,10 @@ public class CourseData extends AppCompatActivity {
     }
 
     private void showCourseData(ArrayList<Course> list) {
-        courseDataRV.setLayoutManager(new LinearLayoutManager(CourseData.this));
+        CourseDataRV.setLayoutManager(new LinearLayoutManager(CourseData.this));
         CourseAdapter courseAdapter = new CourseAdapter(CourseData.this);
         courseAdapter.setListCourse(list);
-        courseDataRV.setAdapter(courseAdapter);
+        CourseDataRV.setAdapter(courseAdapter);
     }
 
     @Override

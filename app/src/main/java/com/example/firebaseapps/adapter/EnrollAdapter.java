@@ -78,7 +78,7 @@ public class EnrollAdapter extends RecyclerView.Adapter<EnrollAdapter.CardViewVi
                 }
                 Log.d("lectid", "" + course.getLecturer());
                 Log.d("subjname", "" + course.getSubject());
-                if (!lecturerName.getValue().isEmpty()) {
+                if (lecturerName != null) {
                     holder.lbl_subject.setText(course.getSubject());
                     holder.lbl_schedule.setText(course.getDay() + ", " + course.getStart() + " - " + course.getEnd());
                     holder.lbl_lecturer.setText(lecturerName.getValue());

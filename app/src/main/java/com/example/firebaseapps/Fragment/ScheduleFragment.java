@@ -25,6 +25,10 @@ import java.util.ArrayList;
 
 public class ScheduleFragment extends Fragment {
 
+
+
+
+
     RecyclerView scheduleDataRV;
 
     ArrayList<Course> listCourse = new ArrayList<>();
@@ -51,6 +55,7 @@ public class ScheduleFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        scheduleDataRV = view.findViewById(R.id.scheduleDataRV);
         getStudentCourses();
     }
 
